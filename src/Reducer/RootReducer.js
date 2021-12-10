@@ -1,5 +1,5 @@
-import { actionTypes } from "../app/CommonUtils/ActionTypes";
-import initialState from "../app/CommonUtils/InitialState";
+import { actionTypes } from "../CommonUtils/ActionTypes";
+import initialState from "../CommonUtils/InitialState";
 
 export default function RootReducer(state = initialState, action) {
     switch (action.type) {

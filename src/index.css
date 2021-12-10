@@ -12,7 +12,7 @@
  border-bottom: 2px solid #ccc;
 }
 .car-list-container:last-child{border-bottom: none;}
-#btn-car-detail{
+#btn-car-detail,#btn-back{
    padding: 10px 8px;
    border-radius: 2px;
    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 20%);
@@ -22,6 +22,7 @@
    background: #ff9f00;
    
 }
+#btn-back{width: 200px; height: 50px; font-size: 16px;}
 span.car-image { 
  width: 150px;
 
@@ -47,3 +48,16 @@ span.car-info {
   font-size: 14px;    border-top: 3px solid;
   margin-top: -41px;
   padding-top: 16px;}
+
+  .pagination{
+    margin: 0 auto;
+    width:300px;
+    font-family: Arial, Helvetica, sans-serif;
+   
+  }
+  .btn{
+    width: 80px;
+    margin:0 10px;
+  }
+  .btn-back{text-align: center; padding-top: 15px;}
+  .mid-wrapper{min-height:625px;}

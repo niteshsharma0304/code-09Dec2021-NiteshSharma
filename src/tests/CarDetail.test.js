@@ -1,14 +1,19 @@
 import { mount } from 'enzyme';
 import { Provider } from 'react-redux';
-import { store } from '../app/store';
+import persistStore from '../app/store';
 import App from '../App';
-import { carListData } from '../app/CommonUtils/data';
+import { carListData } from '../CommonUtils/data';
+import { maxCarsOnPage } from '../Components/Constants';
+import { PersistGate } from 'redux-persist/integration/react'
 
 let Component;
+let { store, persistor } = persistStore();
 beforeEach(() => {
     Component = mount(
         <Provider store={store}>
-            <App />
+            <PersistGate persistor={persistor}>
+                <App />
+            </PersistGate>
         </Provider>
     );
 });
@@ -20,13 +25,14 @@ describe("Car List to CarDetails Navigation", () => {
 
     it("Should have button for details page in each car", () => {
         let carDetailButtons = Component.find("[data-test='btn-car-detail']");
-        expect(carDetailButtons.length).toEqual(carListData.length);
+        expect(carDetailButtons.length).toEqual(maxCarsOnPage);
     });
 
     it("Should navigate on button click", () => {
         let carDetailButtons = Component.find("[data-test='btn-car-detail']");
         carDetailButtons.first().simulate("click");
-        expect(1).toEqual(1);
+        carDetailButtons = Component.find("[data-test='btn-car-detail']");
+        expect(carDetailButtons.length).toEqual(0);
     });
 });
 
